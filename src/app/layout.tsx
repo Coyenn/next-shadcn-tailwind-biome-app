@@ -1,13 +1,25 @@
 import { ThemeProvider } from '@/components/theme-provider';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Instrument_Serif, Inter, Newsreader } from 'next/font/google';
 
-import './globals.css';
+import '../styles/globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
-  preload: true,
-  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  style: 'italic',
+  variable: '--font-newsreader',
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-instrument-serif',
 });
 
 export const metadata: Metadata = {
@@ -21,8 +33,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${newsreader.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
