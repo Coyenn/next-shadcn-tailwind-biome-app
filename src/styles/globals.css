@@ -64,6 +64,6 @@
 
 @layer base {
   *::selection {
-    @apply !bg-emerald-200 !text-emerald-700 dark:!bg-emerald-700 dark:!text-emerald-200;
+    @apply !bg-rose-200 !text-rose-700 dark:!bg-rose-700 dark:!text-rose-200;
   }
 }
